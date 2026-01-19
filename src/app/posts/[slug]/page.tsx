@@ -5,6 +5,7 @@ import { getAllSlugs, getPostBySlug } from "@/lib/posts";
 import Link from "next/link";
 import rehypePrettyCode from "rehype-pretty-code";
 import CopyCodeButtons from "@/components/CopyCodeButtons";
+import { formatDate } from "@/lib/utils";
 
 interface PostPageProps {
     params: Promise<{ slug: string }>;
@@ -88,12 +89,4 @@ export default async function PostPage({ params }: PostPageProps) {
     );
 }
 
-function formatDate(dateString: string): string {
-    if (!dateString) return "";
-    const date = new Date(dateString);
-    return date.toLocaleDateString("ko-KR", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-    });
-}
+

@@ -77,9 +77,29 @@ const jetbrainsMono = localFont({
 export const metadata: Metadata = {
   title: {
     default: "Minimalist Blog",
-    template: "%s | Blog",
+    template: "%s | Minimalist Blog",
   },
-  description: "개발, 기술, 그리고 생각들을 기록합니다.",
+  description: "개발, 기술, 그리고 생각들을 기록하는 미니멀리스트 블로그입니다.",
+  openGraph: {
+    title: "Minimalist Blog",
+    description: "개발, 기술, 그리고 생각들을 기록합니다.",
+    url: "https://blog.example.com",
+    siteName: "Minimalist Blog",
+    locale: "ko_KR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Minimalist Blog",
+    description: "개발, 기술, 그리고 생각들을 기록합니다.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

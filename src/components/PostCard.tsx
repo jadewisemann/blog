@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { PostMeta } from "@/lib/posts";
+import { formatDate } from "@/lib/utils";
 
 interface PostCardProps {
     post: PostMeta;
@@ -32,14 +33,4 @@ export default function PostCard({ post }: PostCardProps) {
             </Link>
         </article>
     );
-}
-
-function formatDate(dateString: string): string {
-    if (!dateString) return "";
-    const date = new Date(dateString);
-    return date.toLocaleDateString("ko-KR", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-    });
 }

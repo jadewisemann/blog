@@ -43,12 +43,7 @@
   --header-bg: rgba(37, 37, 37, 0.95);
 }
 
-@theme inline {
-  --color-background: var(--background-primary);
-  --color-foreground: var(--text-normal);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+
 
 html {
   background-color: var(--background-primary);
