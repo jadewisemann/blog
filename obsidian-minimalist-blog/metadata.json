@@ -1,0 +1,5 @@
+{
+  "name": "Obsidian Minimalist Blog",
+  "description": "A static-style minimalist blog interface inspired by Obsidian's VSCode Light theme, featuring clean typography, file-tree navigation, and precise syntax highlighting.",
+  "requestFramePermissions": []
+}

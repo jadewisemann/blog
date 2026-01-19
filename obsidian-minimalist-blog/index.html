@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimalist Blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --background-primary: #f3f3f3;
+      --background-primary-alt: #eeeeee;
+      --background-secondary: #e0e0e0;
+      --background-secondary-alt: #ffffff;
+      --background-modifier-border: #b0bec5;
+      --text-normal: #444444;
+      --text-muted: #757575;
+      --text-faint: #9e9e9e;
+      --text-accent: #d70087;
+      --h1-color: #155f87;
+      --link-color: #7e57c2;
+      --code-background: #e0e0e0;
+      --code-tag: #d70087;
+      --bold-color: #0087af;
+      --italic-color: #8700af;
+      --font-monospace: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Fira Code', monospace;
+    }
+
+    body {
+      background-color: var(--background-primary);
+      color: var(--text-normal);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    /* Custom Scrollbar to match Obsidian */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--background-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #93939967;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #939399;
+    }
+
+    .markdown-rendered h1, .markdown-rendered h2, .markdown-rendered h3 {
+      color: var(--h1-color);
+      font-weight: 600;
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
+
+    .markdown-rendered a {
+      color: var(--link-color);
+      font-style: italic;
+      text-decoration: none;
+    }
+    .markdown-rendered a:hover {
+      text-decoration: underline;
+    }
+
+    .markdown-rendered blockquote {
+      border-left: 4px solid #6200ea;
+      background-color: #ede7f6;
+      padding: 12px 16px;
+      margin: 1.5em 0;
+    }
+
+    .markdown-rendered code.inline {
+      background-color: var(--code-background);
+      color: var(--code-tag);
+      padding: 2px 4px;
+      border-radius: 2px;
+      font-family: var(--font-monospace);
+      font-size: 0.9em;
+    }
+
+    .markdown-rendered .cm-strong {
+      color: var(--bold-color);
+      font-weight: 800;
+    }
+
+    .markdown-rendered .cm-em {
+      color: var(--italic-color);
+      font-weight: 600;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

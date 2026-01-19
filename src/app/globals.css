@@ -1,26 +1,318 @@
 @import "tailwindcss";
 
+/* VSCode Light Theme - Obsidian Minimalist Blog */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background-primary: #f3f3f3;
+  --background-alt: #eeeeee;
+  --background-secondary: #e0e0e0;
+  --background-modifier-border: #b0bec5;
+  --text-normal: #444444;
+  --text-muted: #757575;
+  --text-faint: #9e9e9e;
+  --text-accent: #d70087;
+  --h1-color: #155f87;
+  --h2-color: #155f87;
+  --h3-color: #155f87;
+  --link-color: #7e57c2;
+  --code-background: #e0e0e0;
+  --code-text: #d70087;
+  --bold-color: #0087af;
+  --italic-color: #8700af;
+  --header-bg: rgba(238, 238, 238, 0.95);
+  --font-monospace: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Fira Code', monospace;
+}
+
+/* Dark theme */
+:root.dark {
+  --background-primary: #1e1e1e;
+  --background-alt: #252525;
+  --background-secondary: #2d2d2d;
+  --background-modifier-border: #404040;
+  --text-normal: #d4d4d4;
+  --text-muted: #808080;
+  --text-faint: #6b6b6b;
+  --text-accent: #f472b6;
+  --h1-color: #38bdf8;
+  --h2-color: #38bdf8;
+  --h3-color: #38bdf8;
+  --link-color: #a78bfa;
+  --code-background: #2d2d2d;
+  --code-text: #f472b6;
+  --bold-color: #38bdf8;
+  --italic-color: #c084fc;
+  --header-bg: rgba(37, 37, 37, 0.95);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--background-primary);
+  --color-foreground: var(--text-normal);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background-color: var(--background-primary);
+  color: var(--text-normal);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background-primary);
+  color: var(--text-normal);
+  font-family: var(--font-jetbrains), var(--font-pyeojin), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Allow selection only in code blocks */
+.prose pre,
+.prose pre code,
+.code-block-content {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* Selection */
+::selection {
+  background: rgba(215, 0, 135, 0.2);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #93939967;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #939399;
+}
+
+/* Header */
+.header {
+  background-color: var(--header-bg);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+/* Prose styles - VSCode Light Theme */
+.prose {
+  line-height: 1.75;
+  font-size: 0.9375rem;
+}
+
+.prose h1 {
+  color: var(--h1-color);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.prose h2 {
+  color: var(--h2-color);
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose h3 {
+  color: var(--h3-color);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+/* Strong - Blue color */
+.prose strong {
+  color: var(--bold-color);
+  font-weight: 800;
+}
+
+/* Italic - Purple color */
+.prose em {
+  color: var(--italic-color);
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Links - Violet color, italic */
+.prose a {
+  color: var(--link-color);
+  font-style: italic;
+  text-decoration: none;
+}
+
+.prose a:hover {
+  text-decoration: underline;
+}
+
+/* Inline code - Magenta/Pink */
+.prose code {
+  color: var(--code-text);
+  background-color: var(--code-background);
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-size: 0.9em;
+  font-family: var(--font-jetbrains), var(--font-pyeojin), monospace;
+}
+
+/* Code blocks */
+.prose pre {
+  background-color: var(--code-background);
+  color: var(--text-normal);
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 1.5em 0;
+  border: 1px solid var(--background-modifier-border);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.prose pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* rehype-pretty-code styling */
+.code-block-wrapper pre {
+  margin: 0;
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+}
+
+.code-block-wrapper pre code {
+  font-family: var(--font-jetbrains), var(--font-pyeojin), monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  background: transparent !important;
+  padding: 0 !important;
+  display: block;
+}
+
+.code-block-wrapper pre code span {
+  font-family: inherit;
+}
+
+/* Code block figure wrapper */
+.code-figure {
+  margin: 0;
+}
+
+/* rehype-pretty-code theme overrides */
+[data-rehype-pretty-code-figure] pre {
+  background-color: var(--code-background) !important;
+}
+
+:root.dark [data-rehype-pretty-code-figure] pre {
+  background-color: #1e1e1e !important;
+}
+
+/* Blockquote - Purple accent */
+.prose blockquote {
+  border-left: 4px solid #6200ea;
+  background-color: #ede7f6;
+  padding: 12px 16px;
+  margin: 1.5em 0;
+  border-radius: 0 4px 4px 0;
+}
+
+:root.dark .prose blockquote {
+  background-color: rgba(98, 0, 234, 0.1);
+}
+
+/* Lists */
+.prose ul,
+.prose ol {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose li {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-normal);
+  line-height: 1.7;
+}
+
+.prose ul li {
+  list-style-type: disc;
+}
+
+.prose ul li::marker {
+  color: var(--text-muted);
+}
+
+.prose ol li {
+  list-style-type: decimal;
+}
+
+/* Nested lists */
+.prose ul ul {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.prose ul ul li {
+  list-style-type: circle;
+}
+
+/* Horizontal rule */
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--background-modifier-border);
+  margin: 2rem 0;
+}
+
+/* Tables */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid var(--background-modifier-border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.prose th {
+  background-color: var(--background-secondary);
+  font-weight: 600;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
